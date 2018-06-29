@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
 // import our main App component
@@ -31,7 +32,9 @@ export default (store) => (req, res, next) => {
         const html = ReactDOMServer.renderToString(
             <Loadable.Capture report={m => modules.push(m)}>
                 <ReduxProvider store={store}>
-                    <App />
+                    <StaticRouter location={req.baseUrl} context={{}}>
+                        <App />
+                    </StaticRouter>
                 </ReduxProvider>
             </Loadable.Capture>
         );

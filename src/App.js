@@ -1,44 +1,26 @@
 import React, { Component } from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
+
+import routes from './routes';
 // import logo from './logo.svg';
 import './App.css';
-import Loadable from 'react-loadable';
-import { connect } from 'react-redux';
-import { setMessage } from './actions/messageActions';
 
-import Posts from './components/Posts';
-import Loading from './components/Loading';
-
-const PostForm = Loadable({
-  loader: () => import(/* webpackChunkName: "postFormChunk" */'./components/Postform'),
-  loading: Loading,
-  modules: ['postFormChunk']
-});
-
-class App extends Component {
-  componentDidMount() {
-    if (!this.props.message) {
-      this.props.setMessage("Hi, I am from client!!!");
-    }
-  }
-
+export default class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1 className="App-title">Welcome to React</h1>
-          <p>Redux: {this.props.message}</p>
+          <ul>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/posts'>Posts</Link></li>
+          </ul>
         </header>
-        <PostForm />
-        <hr />
-        <Posts />
+        <Switch>
+          {routes.map((route, i) => <Route key={i} {...route} />)}
+        </Switch>
       </div>
     );
   }
 }
-
-const mapStateToProps = state => ({
-  message: state.message.message
-});
-
-export default connect(mapStateToProps, { setMessage })(App);
