@@ -9,10 +9,13 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // root (/) should always serve our server rendered page
-app.use('*', serverRenderer);
+app.use('^/$', serverRenderer);
 
 // other static resources should just be served as they are
 app.use(express.static('build', { maxAge: '30d' }));
+
+// all other routes should be rendered based on the route
+app.use('*', serverRenderer);
 
 // start the app
 app.listen(PORT, (error) => {

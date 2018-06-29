@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -145,19 +145,13 @@ module.exports = require("redux");
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports) {
-
-module.exports = require("path");
-
-/***/ }),
-/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__middleware_renderer__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__middleware_renderer__ = __webpack_require__(8);
 
 
 // we'll talk about this in a minute:
@@ -169,10 +163,13 @@ var PORT = process.env.PORT || 3000;
 var app = __WEBPACK_IMPORTED_MODULE_0_express___default()();
 
 // root (/) should always serve our server rendered page
-app.use('*', __WEBPACK_IMPORTED_MODULE_1__middleware_renderer__["a" /* default */]);
+app.use('^/$', __WEBPACK_IMPORTED_MODULE_1__middleware_renderer__["a" /* default */]);
 
 // other static resources should just be served as they are
 app.use(__WEBPACK_IMPORTED_MODULE_0_express___default.a.static('build', { maxAge: '30d' }));
+
+// all other routes should be rendered based on the route
+app.use('*', __WEBPACK_IMPORTED_MODULE_1__middleware_renderer__["a" /* default */]);
 
 // start the app
 app.listen(PORT, function (error) {
@@ -184,21 +181,21 @@ app.listen(PORT, function (error) {
 });
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom_server__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom_server__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom_server__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_App__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_App__ = __webpack_require__(10);
 var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/server/middleware/renderer.js',
     _this = this;
 
@@ -210,8 +207,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // import our main App component
 
 
-var path = __webpack_require__(6);
-var fs = __webpack_require__(20);
+var path = __webpack_require__(21);
+var fs = __webpack_require__(22);
 
 /* harmony default export */ __webpack_exports__["a"] = (function (req, res, next) {
 
@@ -239,25 +236,28 @@ var fs = __webpack_require__(20);
 });
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_css__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_css__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__App_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Posts__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Postform__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__store__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_loadable__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_loadable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_loadable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Posts__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Postform__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Loading__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__store__ = __webpack_require__(17);
 var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/src/App.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -280,6 +280,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+
+// const PostForm = Loadable({
+//   loader: () => import('./components/Postform'),
+//   loading: () => Loading
+// });
+
 var App = function (_Component) {
   _inherits(App, _Component);
 
@@ -294,9 +301,9 @@ var App = function (_Component) {
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_2_react_redux__["Provider"],
-        _defineProperty({ store: __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */], __source: {
+        _defineProperty({ store: __WEBPACK_IMPORTED_MODULE_7__store__["a" /* default */], __source: {
             fileName: _jsxFileName,
-            lineNumber: 14
+            lineNumber: 21
           },
           __self: this
         }, '__self', this),
@@ -304,7 +311,7 @@ var App = function (_Component) {
           'div',
           _defineProperty({ className: 'App', __source: {
               fileName: _jsxFileName,
-              lineNumber: 15
+              lineNumber: 22
             },
             __self: this
           }, '__self', this),
@@ -312,7 +319,7 @@ var App = function (_Component) {
             'header',
             _defineProperty({ className: 'App-header', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 16
+                lineNumber: 23
               },
               __self: this
             }, '__self', this),
@@ -320,31 +327,31 @@ var App = function (_Component) {
               'h1',
               _defineProperty({ className: 'App-title', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 18
+                  lineNumber: 25
                 },
                 __self: this
               }, '__self', this),
               'Welcome to React'
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Postform__["a" /* default */], _defineProperty({
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Postform__["a" /* default */], _defineProperty({
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 20
+              lineNumber: 27
             },
             __self: this
           }, '__self', this)),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', _defineProperty({
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 21
+              lineNumber: 28
             },
             __self: this
           }, '__self', this)),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Posts__["a" /* default */], _defineProperty({
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Posts__["a" /* default */], _defineProperty({
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 22
+              lineNumber: 29
             },
             __self: this
           }, '__self', this))
@@ -359,10 +366,16 @@ var App = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (App);
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports) {
 
 
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-loadable");
 
 /***/ }),
 /* 13 */
@@ -716,11 +729,39 @@ PostForm.propTypes = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/src/components/Loading.js',
+    _this = this;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+/* unused harmony default export */ var _unused_webpack_default_export = (function () {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        _defineProperty({
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 5
+            },
+            __self: _this
+        }, '__self', _this),
+        'Loading...'
+    );
+});
+
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_thunk__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__(19);
 
 
 
@@ -734,19 +775,19 @@ var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK
 /* harmony default export */ __webpack_exports__["a"] = (store);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__postReducer__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__postReducer__ = __webpack_require__(20);
 
 
 
@@ -755,7 +796,7 @@ module.exports = require("redux-thunk");
 }));
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -786,7 +827,13 @@ var initialState = {
 });
 
 /***/ }),
-/* 20 */
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
