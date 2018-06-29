@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,25 +72,68 @@ module.exports = require("react");
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = require("react-redux");
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FETCH_POSTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NEW_POST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return SET_MESSAGE; });
+var FETCH_POSTS = 'FETCH_POSTS';
+var NEW_POST = 'NEW_POST';
+
+var SET_MESSAGE = 'SET_MESSAGE';
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("prop-types");
+module.exports = require("react-redux");
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-loadable");
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return setMessage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__types__ = __webpack_require__(1);
+
+
+var setMessage = function setMessage(message) {
+    return function (dispatch) {
+        dispatch({
+            type: __WEBPACK_IMPORTED_MODULE_0__types__["c" /* SET_MESSAGE */],
+            payload: message
+        });
+    };
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("prop-types");
+
+/***/ }),
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return fetchPosts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createPost; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__types__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__types__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_isomorphic_fetch__);
 
 
@@ -128,404 +171,18 @@ var createPost = function createPost(postData) {
 };
 
 /***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FETCH_POSTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NEW_POST; });
-var FETCH_POSTS = 'FETCH_POSTS';
-var NEW_POST = 'NEW_POST';
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__middleware_renderer__ = __webpack_require__(8);
-
-
-// we'll talk about this in a minute:
-
-
-var PORT = process.env.PORT || 3000;
-
-// initialize the application and create the routes
-var app = __WEBPACK_IMPORTED_MODULE_0_express___default()();
-
-// root (/) should always serve our server rendered page
-app.use('^/$', __WEBPACK_IMPORTED_MODULE_1__middleware_renderer__["a" /* default */]);
-
-// other static resources should just be served as they are
-app.use(__WEBPACK_IMPORTED_MODULE_0_express___default.a.static('build', { maxAge: '30d' }));
-
-// all other routes should be rendered based on the route
-app.use('*', __WEBPACK_IMPORTED_MODULE_1__middleware_renderer__["a" /* default */]);
-
-// start the app
-app.listen(PORT, function (error) {
-    if (error) {
-        return console.log('something bad happened', error);
-    }
-
-    console.log("listening on " + PORT + "...");
-});
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = require("express");
-
-/***/ }),
 /* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom_server__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom_server__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_App__ = __webpack_require__(10);
-var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/server/middleware/renderer.js',
-    _this = this;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-// import our main App component
-
-
-var path = __webpack_require__(21);
-var fs = __webpack_require__(22);
-
-/* harmony default export */ __webpack_exports__["a"] = (function (req, res, next) {
-
-    // point to the html file created by CRA's build tool
-    var filePath = path.resolve('build', 'index.html');
-
-    fs.readFile(filePath, 'utf8', function (err, htmlData) {
-        if (err) {
-            console.error('err', err);
-            return res.status(404).end();
-        }
-
-        // render the app as a string
-        var html = __WEBPACK_IMPORTED_MODULE_1_react_dom_server___default.a.renderToString(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__src_App__["a" /* default */], _defineProperty({
-            __source: {
-                fileName: _jsxFileName,
-                lineNumber: 22
-            },
-            __self: _this
-        }, '__self', _this)));
-
-        // inject the rendered app into our html and send it
-        return res.send(htmlData.replace('<div id="root"></div>', '<div id="root">' + html + '</div>'));
-    });
-});
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-dom/server");
-
-/***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_css__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__App_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_loadable__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_loadable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_loadable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Posts__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Postform__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Loading__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__store__ = __webpack_require__(17);
-var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/src/App.js';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-// import logo from './logo.svg';
-
-
-
-
-
-
-
-
-
-
-// const PostForm = Loadable({
-//   loader: () => import('./components/Postform'),
-//   loading: () => Loading
-// });
-
-var App = function (_Component) {
-  _inherits(App, _Component);
-
-  function App() {
-    _classCallCheck(this, App);
-
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
-  }
-
-  _createClass(App, [{
-    key: 'render',
-    value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_react_redux__["Provider"],
-        _defineProperty({ store: __WEBPACK_IMPORTED_MODULE_7__store__["a" /* default */], __source: {
-            fileName: _jsxFileName,
-            lineNumber: 21
-          },
-          __self: this
-        }, '__self', this),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          _defineProperty({ className: 'App', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 22
-            },
-            __self: this
-          }, '__self', this),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'header',
-            _defineProperty({ className: 'App-header', __source: {
-                fileName: _jsxFileName,
-                lineNumber: 23
-              },
-              __self: this
-            }, '__self', this),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'h1',
-              _defineProperty({ className: 'App-title', __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 25
-                },
-                __self: this
-              }, '__self', this),
-              'Welcome to React'
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Postform__["a" /* default */], _defineProperty({
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 27
-            },
-            __self: this
-          }, '__self', this)),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', _defineProperty({
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 28
-            },
-            __self: this
-          }, '__self', this)),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Posts__["a" /* default */], _defineProperty({
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 29
-            },
-            __self: this
-          }, '__self', this))
-        )
-      );
-    }
-  }]);
-
-  return App;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-/* harmony default export */ __webpack_exports__["a"] = (App);
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-loadable");
-
-/***/ }),
-/* 13 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_postActions__ = __webpack_require__(3);
-var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/src/components/Posts.js';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-var Posts = function (_Component) {
-  _inherits(Posts, _Component);
-
-  function Posts() {
-    _classCallCheck(this, Posts);
-
-    return _possibleConstructorReturn(this, (Posts.__proto__ || Object.getPrototypeOf(Posts)).apply(this, arguments));
-  }
-
-  _createClass(Posts, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      this.props.fetchPosts();
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      if (nextProps.newPost) {
-        this.props.posts.unshift(nextProps.newPost);
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var postItems = this.props.posts.map(function (post) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          _defineProperty({ key: post.id, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 19
-            },
-            __self: _this2
-          }, '__self', _this2),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h3',
-            _defineProperty({
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 20
-              },
-              __self: _this2
-            }, '__self', _this2),
-            post.title
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'p',
-            _defineProperty({
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 21
-              },
-              __self: _this2
-            }, '__self', _this2),
-            post.body
-          )
-        );
-      });
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        _defineProperty({
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 25
-          },
-          __self: this
-        }, '__self', this),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'h1',
-          _defineProperty({
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 26
-            },
-            __self: this
-          }, '__self', this),
-          'Posts'
-        ),
-        postItems
-      );
-    }
-  }]);
-
-  return Posts;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-Posts.propTypes = {
-  fetchPosts: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
-  posts: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array.isRequired,
-  newPost: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object
-};
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    posts: state.posts.items,
-    newPost: state.posts.item
-  };
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(mapStateToProps, { fetchPosts: __WEBPACK_IMPORTED_MODULE_3__actions_postActions__["b" /* fetchPosts */] })(Posts));
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports = require("isomorphic-fetch");
-
-/***/ }),
-/* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_postActions__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_postActions__ = __webpack_require__(7);
 var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/src/components/Postform.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -722,85 +379,117 @@ PostForm.propTypes = {
   createPost: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(null, { createPost: __WEBPACK_IMPORTED_MODULE_3__actions_postActions__["a" /* createPost */] })(PostForm));
+/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(null, { createPost: __WEBPACK_IMPORTED_MODULE_3__actions_postActions__["a" /* createPost */] })(PostForm));
 
 /***/ }),
-/* 16 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/src/components/Loading.js',
-    _this = this;
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_loadable__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_loadable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_loadable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_store__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__middleware_renderer__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src_actions_messageActions__ = __webpack_require__(5);
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (function () {
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        _defineProperty({
-            __source: {
-                fileName: _jsxFileName,
-                lineNumber: 5
-            },
-            __self: _this
-        }, '__self', _this),
-        'Loading...'
-    );
+
+// we'll talk about this in a minute:
+
+
+
+var PORT = process.env.PORT || 3000;
+
+// initialize the application and create the routes
+var app = __WEBPACK_IMPORTED_MODULE_0_express___default()();
+
+var store = Object(__WEBPACK_IMPORTED_MODULE_2__src_store__["a" /* default */])();
+store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__src_actions_messageActions__["a" /* setMessage */])('Hi I am from server!'));
+
+// root (/) should always serve our server rendered page
+app.use('^/$', Object(__WEBPACK_IMPORTED_MODULE_3__middleware_renderer__["a" /* default */])(store));
+
+// other static resources should just be served as they are
+app.use(__WEBPACK_IMPORTED_MODULE_0_express___default.a.static('build', { maxAge: '30d' }));
+
+// all other routes should be rendered based on the route
+app.use('*', Object(__WEBPACK_IMPORTED_MODULE_3__middleware_renderer__["a" /* default */])(store));
+
+// start the app
+__WEBPACK_IMPORTED_MODULE_1_react_loadable___default.a.preloadAll().then(function () {
+    app.listen(PORT, function (error) {
+        if (error) {
+            return console.log('something bad happened', error);
+        }
+
+        console.log("listening on " + PORT + "...");
+    });
 });
 
 /***/ }),
-/* 17 */
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("express");
+
+/***/ }),
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(5);
+/* harmony export (immutable) */ __webpack_exports__["a"] = configureStore;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_thunk__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__(13);
 
 
 
-
-var initialState = {};
 
 var middleware = [__WEBPACK_IMPORTED_MODULE_1_redux_thunk___default.a];
 
-var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_2__reducers__["a" /* default */], initialState, __WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"].apply(undefined, middleware));
+function configureStore() {
+    var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-/* harmony default export */ __webpack_exports__["a"] = (store);
+    return Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_2__reducers__["a" /* default */], initialState, __WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"].apply(undefined, middleware));
+}
 
 /***/ }),
-/* 18 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 19 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__postReducer__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__postReducer__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__messageReducer__ = __webpack_require__(15);
+
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({
-  posts: __WEBPACK_IMPORTED_MODULE_1__postReducer__["a" /* default */]
+  posts: __WEBPACK_IMPORTED_MODULE_1__postReducer__["a" /* default */],
+  message: __WEBPACK_IMPORTED_MODULE_2__messageReducer__["a" /* default */]
 }));
 
 /***/ }),
-/* 20 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_types__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_types__ = __webpack_require__(1);
 
 
 var initialState = {
@@ -827,13 +516,463 @@ var initialState = {
 });
 
 /***/ }),
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_types__ = __webpack_require__(1);
+
+
+var initialState = {
+  message: ''
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case __WEBPACK_IMPORTED_MODULE_0__actions_types__["c" /* SET_MESSAGE */]:
+      return Object.assign({}, state, {
+        message: action.payload
+      });
+    default:
+      return state;
+  }
+});
+
+/***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom_server__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom_server__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_loadable__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_loadable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_loadable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__src_App__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__build_asset_manifest_json__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__build_asset_manifest_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__build_asset_manifest_json__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_redux__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react_redux__);
+var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/server/middleware/renderer.js',
+    _this = this;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+// import our main App component
+
+
+
+var path = __webpack_require__(24);
+var fs = __webpack_require__(25);
+
+
+var extractAssets = function extractAssets(assets, chunks) {
+    return Object.keys(assets).filter(function (asset) {
+        return chunks.indexOf(asset.replace('.js', '')) > -1;
+    }).map(function (k) {
+        return assets[k];
+    });
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (function (store) {
+    return function (req, res, next) {
+
+        // point to the html file created by CRA's build tool
+        var filePath = path.resolve('build', 'index.html');
+
+        fs.readFile(filePath, 'utf8', function (err, htmlData) {
+            if (err) {
+                console.error('err', err);
+                return res.status(404).end();
+            }
+
+            var modules = [];
+
+            // render the app as a string
+            var html = __WEBPACK_IMPORTED_MODULE_1_react_dom_server___default.a.renderToString(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_2_react_loadable___default.a.Capture,
+                _defineProperty({ report: function report(m) {
+                        return modules.push(m);
+                    }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 32
+                    },
+                    __self: _this
+                }, '__self', _this),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_5_react_redux__["Provider"],
+                    _defineProperty({ store: store, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 33
+                        },
+                        __self: _this
+                    }, '__self', _this),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__src_App__["a" /* default */], _defineProperty({
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 34
+                        },
+                        __self: _this
+                    }, '__self', _this))
+                )
+            ));
+
+            var extraChunks = extractAssets(__WEBPACK_IMPORTED_MODULE_4__build_asset_manifest_json___default.a, modules).map(function (c) {
+                return '<script type="text/javascript" src="/' + c + '"></script>';
+            });
+
+            var reduxState = JSON.stringify(store.getState());
+
+            // inject the rendered app into our html and send it
+            return res.send(htmlData.replace('<div id="root"></div>', '<div id="root">' + html + '</div>').replace('</body>', extraChunks.join('') + '</body>').replace('"__SERVER_REDUX_STATE__"', reduxState));
+        });
+    };
+});
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-dom/server");
+
+/***/ }),
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_css__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__App_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_loadable__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_loadable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_loadable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_redux__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions_messageActions__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Posts__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Loading__ = __webpack_require__(22);
+var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/src/App.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+// import logo from './logo.svg';
+
+
+
+
+
+
+
+
+var PostForm = __WEBPACK_IMPORTED_MODULE_2_react_loadable___default()(_defineProperty({
+  loader: function loader() {
+    return Promise.resolve().then(function () {
+      return __webpack_require__( /* webpackChunkName: "postFormChunk" */8);
+    });
+  },
+  modules: ['./components/Postform'],
+  webpack: function webpack() {
+    return [/*require.resolve*/(8)];
+  },
+  loading: __WEBPACK_IMPORTED_MODULE_6__components_Loading__["a" /* default */]
+}, 'modules', ['postFormChunk']));
+
+var App = function (_Component) {
+  _inherits(App, _Component);
+
+  function App() {
+    _classCallCheck(this, App);
+
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+  }
+
+  _createClass(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (!this.props.message) {
+        this.props.setMessage("Hi, I am from client!!!");
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        _defineProperty({ className: 'App', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 26
+          },
+          __self: this
+        }, '__self', this),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'header',
+          _defineProperty({ className: 'App-header', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 27
+            },
+            __self: this
+          }, '__self', this),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h1',
+            _defineProperty({ className: 'App-title', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 29
+              },
+              __self: this
+            }, '__self', this),
+            'Welcome to React'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            _defineProperty({
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 30
+              },
+              __self: this
+            }, '__self', this),
+            'Redux: ',
+            this.props.message
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(PostForm, _defineProperty({
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 32
+          },
+          __self: this
+        }, '__self', this)),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', _defineProperty({
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 33
+          },
+          __self: this
+        }, '__self', this)),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Posts__["a" /* default */], _defineProperty({
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 34
+          },
+          __self: this
+        }, '__self', this))
+      );
+    }
+  }]);
+
+  return App;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    message: state.message.message
+  };
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_react_redux__["connect"])(mapStateToProps, { setMessage: __WEBPACK_IMPORTED_MODULE_4__actions_messageActions__["a" /* setMessage */] })(App));
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_postActions__ = __webpack_require__(7);
+var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/src/components/Posts.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var Posts = function (_Component) {
+  _inherits(Posts, _Component);
+
+  function Posts() {
+    _classCallCheck(this, Posts);
+
+    return _possibleConstructorReturn(this, (Posts.__proto__ || Object.getPrototypeOf(Posts)).apply(this, arguments));
+  }
+
+  _createClass(Posts, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (this.props.posts && this.props.posts.length == 0) this.props.fetchPosts();
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.newPost) {
+        this.props.posts.unshift(nextProps.newPost);
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var postItems = this.props.posts.map(function (post) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          _defineProperty({ key: post.id, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 20
+            },
+            __self: _this2
+          }, '__self', _this2),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h3',
+            _defineProperty({
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 21
+              },
+              __self: _this2
+            }, '__self', _this2),
+            post.title
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            _defineProperty({
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 22
+              },
+              __self: _this2
+            }, '__self', _this2),
+            post.body
+          )
+        );
+      });
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        _defineProperty({
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 26
+          },
+          __self: this
+        }, '__self', this),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'h1',
+          _defineProperty({
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 27
+            },
+            __self: this
+          }, '__self', this),
+          'Posts'
+        ),
+        postItems
+      );
+    }
+  }]);
+
+  return Posts;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+Posts.propTypes = {
+  fetchPosts: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+  posts: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array.isRequired,
+  newPost: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    posts: state.posts.items,
+    newPost: state.posts.item
+  };
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(mapStateToProps, { fetchPosts: __WEBPACK_IMPORTED_MODULE_3__actions_postActions__["b" /* fetchPosts */] })(Posts));
+
+/***/ }),
 /* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("isomorphic-fetch");
+
+/***/ }),
+/* 22 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+var _jsxFileName = '/Users/dimukhin/playground/react/react-ssr-redux/src/components/Loading.js',
+    _this = this;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        _defineProperty({
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 5
+            },
+            __self: _this
+        }, '__self', _this),
+        'Loading...'
+    );
+});
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+module.exports = {"main.css":"static/css/main.c17080f1.css","main.css.map":"static/css/main.c17080f1.css.map","main.js":"static/js/main.376a13c2.js","main.js.map":"static/js/main.376a13c2.js.map","postFormChunk.js":"static/js/postFormChunk.3da577b1.chunk.js","postFormChunk.js.map":"static/js/postFormChunk.3da577b1.chunk.js.map"}
+
+/***/ }),
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");

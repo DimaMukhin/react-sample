@@ -1,36 +1,44 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { Provider } from 'react-redux';
 import Loadable from 'react-loadable';
+import { connect } from 'react-redux';
+import { setMessage } from './actions/messageActions';
 
 import Posts from './components/Posts';
-import PostForm from './components/Postform';
 import Loading from './components/Loading';
 
-import store from './store';
-
-// const PostForm = Loadable({
-//   loader: () => import('./components/Postform'),
-//   loading: () => Loading
-// });
+const PostForm = Loadable({
+  loader: () => import(/* webpackChunkName: "postFormChunk" */'./components/Postform'),
+  loading: Loading,
+  modules: ['postFormChunk']
+});
 
 class App extends Component {
+  componentDidMount() {
+    if (!this.props.message) {
+      this.props.setMessage("Hi, I am from client!!!");
+    }
+  }
+
   render() {
     return (
-      <Provider store={store}>
-        <div className="App">
-          <header className="App-header">
-            {/* <img src={logo} className="App-logo" alt="logo" /> */}
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <PostForm />
-          <hr />
-          <Posts />
-        </div>
-      </Provider>
+      <div className="App">
+        <header className="App-header">
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <h1 className="App-title">Welcome to React</h1>
+          <p>Redux: {this.props.message}</p>
+        </header>
+        <PostForm />
+        <hr />
+        <Posts />
+      </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  message: state.message.message
+});
+
+export default connect(mapStateToProps, { setMessage })(App);

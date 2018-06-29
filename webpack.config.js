@@ -30,7 +30,14 @@ var serverConfig = {
                 test: /js$/,
                 exclude: /(node_modules)/,
                 loader: "babel-loader",
-                query: { presets: ["react-app"] }
+                query: { 
+                    presets: ["react-app"],
+                    plugins: [
+                        'syntax-dynamic-import',
+                        'dynamic-import-node',
+                        'react-loadable/babel'
+                    ]
+                },
             }
         ]
     },
